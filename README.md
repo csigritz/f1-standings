@@ -10,4 +10,5 @@ Features:
 - Historical data
 
 
-Thanks to [ergast.com](https://ergast.com/mrd/) for providing this wonderful API.
+Thanks to [jolpi.ca](https://api.jolpi.ca/ergast/f1/) for providing this wonderful API.
+And also thanks to [ergast.com](https://ergast.com/mrd/) for serving this API for so many years.
