@@ -13,12 +13,12 @@ type Input = {
 export default async function drivers(input: Input) {
   try {
     const res = await fetch(`https://api.jolpi.ca/ergast/f1/${input.year}/constructors.json`, {
-      method: "get"
+      method: "get",
     });
     const data = (await res.json()) as any;
-    const returnValue = data.MRData.ConstructorTable.Constructors ?? []
+    const returnValue = data.MRData.ConstructorTable.Constructors ?? [];
     return returnValue;
   } catch (error) {
-    return null
+    return null;
   }
 }
