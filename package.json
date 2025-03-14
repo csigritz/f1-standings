@@ -83,7 +83,7 @@
     },
     {
       "name": "driver-standings",
-      "title": "driver-standings",
+      "title": "Driver Standings",
       "description": "Get Formula 1 driver standings for a season"
     },
     {
@@ -123,7 +123,7 @@
     }
   ],
   "ai": {
-    "instructions": "\n\n- **Never guess or infer round numbers.**\n- If the user requests **qualifying results, race results, or any round-specific information** by mentioning a **race name, location, or country**, you MUST follow these steps strictly in order:\n1. First, call the tool `f1-standings-rounds` to retrieve the exact round number.\n2. ONLY THEN call the appropriate results-related tool (`f1-standings-qualifying-results` or `f1-standings-race-results`) using the round number provided by `f1-standings-rounds`.\n\n- When asked about the current season, use the tool 'f1-standings-current-season' first!",
+    "instructions": "\n\n- **Never guess or infer round numbers. Never!!!**\n- If the user requests **qualifying results, race results, or any round- or race-specific information** by mentioning a **race name, location, season, year, or country**, you MUST follow these steps strictly in order:\n1. First, call the tool `f1-standings-rounds` to retrieve the exact round number.\n2. ONLY THEN call the appropriate results-related tool (`f1-standings-qualifying-results` or `f1-standings-race-results`) using the round number provided by `f1-standings-rounds`.\n**Never(!!!)** try to guess the round by your own knowledge\n\n- When asked about the current season, use the tool 'f1-standings-current-season' first!",
     "evals": [
       {
         "input": "@f1-standings who won the driver championship in 2024?",
@@ -3282,19 +3282,20 @@
   "dependencies": {
     "@raycast/api": "^1.93.2",
     "cheerio": "^1.0.0-rc.10",
-    "date-fns": "^3.6.0",
-    "moment": "^2.29.3",
-    "node-fetch": "^3.0.0",
+    "date-fns": "^4.1.0",
+    "moment": "^2.30.1",
+    "node-fetch": "^3.3.2",
     "raycast-toolkit": "^1.0.6",
-    "run-applescript": "^6.0.0"
+    "run-applescript": "^7.0.0"
   },
   "devDependencies": {
     "@raycast/eslint-config": "^1.0.11",
-    "@types/node": "18.18.4",
-    "@types/react": "18.2.37",
+    "@types/node": "22.13.10",
+    "@types/react": "18.2.79",
     "eslint": "^8.57.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.5.4"
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2"
   },
   "scripts": {
     "build": "ray build -e dist",

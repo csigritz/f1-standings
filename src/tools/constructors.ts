@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { ConstructorsResponse } from "../types";
 
 type Input = {
   /**
@@ -15,7 +16,7 @@ export default async function drivers(input: Input) {
     const res = await fetch(`https://api.jolpi.ca/ergast/f1/${input.year}/constructors.json`, {
       method: "get",
     });
-    const data = (await res.json()) as any;
+    const data = (await res.json()) as ConstructorsResponse;
     const returnValue = data.MRData.ConstructorTable.Constructors ?? [];
     return returnValue;
   } catch (error) {

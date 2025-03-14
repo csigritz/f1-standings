@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { DriverStandingResponse } from "../types";
 
 type Input = {
   /**
@@ -15,7 +16,7 @@ export default async function driverStandings(input: Input) {
     const res = await fetch(`https://api.jolpi.ca/ergast/f1/${input.year}/driverStandings.json`, {
       method: "get",
     });
-    const data = (await res.json()) as any;
+    const data = (await res.json()) as DriverStandingResponse;
     const returnValue = data.MRData.StandingsTable.StandingsLists[0]?.DriverStandings ?? [];
     return returnValue;
   } catch (error) {

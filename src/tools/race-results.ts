@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { ResultResponse } from "../types";
 
 type Input = {
   /**
@@ -19,7 +20,7 @@ export default async function raceResults(input: Input) {
     const res = await fetch(`https://api.jolpi.ca/ergast/f1/${input.year}/${input.round}/results.json`, {
       method: "get",
     });
-    const data = (await res.json()) as any;
+    const data = (await res.json()) as ResultResponse;
     const returnValue = data.MRData.RaceTable.Races[0]?.Results ?? [];
     return returnValue;
   } catch (error) {

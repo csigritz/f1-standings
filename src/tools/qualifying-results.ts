@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import { QualifyingResultResponse } from "../types";
 
 type Input = {
   /**
@@ -19,7 +20,7 @@ export default async function qualifyingResults(input: Input) {
     const res = await fetch(`https://api.jolpi.ca/ergast/f1/${input.year}/${input.round}/qualifying.json`, {
       method: "get",
     });
-    const data = (await res.json()) as any;
+    const data = (await res.json()) as QualifyingResultResponse;
     const returnValue = data.MRData.RaceTable.Races[0]?.QualifyingResults ?? [];
     return returnValue;
   } catch (error) {
